@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    
+    <form method="post">
+        <div>
+            @Model.Counter
+        </div>
+        <div>
+            <Button asp-action="plus" >+</Button>
+
+            @* @if (@Model.Counter > 0) { *@
+                <Button asp-action="minus">-</Button>
+            @* } *@
+
+            <Button asp-action="clear">Clear</Button>
+        </div>
+
+        <div>
+            @Model.Max
+        </div>
+
+
+        <div>
+            <label for="">Max value</label>
+            <input type="text" asp-for="Max" >
+        </div>
+
+    </form>
+
+</div>
