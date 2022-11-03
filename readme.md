@@ -81,9 +81,8 @@ kill -9 <the id number>
      sudo apt-get install -y dotnet6
      ```
      
-     * On Ubuntu 20.04 use these commands:
-        * First run these commands:
-        
+     On Ubuntu `20.04` use these commands:
+            
         ```
         wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
         sudo dpkg -i packages-microsoft-prod.deb
