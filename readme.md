@@ -39,6 +39,13 @@ nohup dotnet bin/Release/net6.0/PlusMinus.dll --urls=http://localhost:6007/ 2>&1
 
 Note the process `id number` that is printed to the screen.
 
+If there is not id on the screen you can use this command to find the id of the running process:
+
+```
+ps -eaf | grep PlusMinus
+```
+
+
 Use that to stop the app using:
 
 ```
