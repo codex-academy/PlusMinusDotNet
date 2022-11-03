@@ -83,9 +83,36 @@ kill -9 <the id number>
     * Email the IP address of your server to `mentors@projectcodex.co`
     * The mentors will link your server to domain name for you.
     * `yourname.projectcodex.net`
-  
+
+* Install `nginx` on the server:
+   * `nginx` is a web server that we will use as a reverse proxy to send HTTP request to our `dotnet` app
+   * Install it using this command: `sudo apt-get install nginx`
+   * Start it using this command: `sudo /etc/init.d/nginx start` 
+   * You should be able to access the running nginx web server now using this command: `http://your ip adress here`
+* Configure `nginx` to forward requests to our `dotnet` web app.
+   * Open the `/etc/nginx/site-available` file and edit the `location` section to look like this:
+
+   ```
+   location / {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    # try_files $uri $uri/ =404;
+    proxy_pass http://localhost:6007;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection keep-alive;
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+   }
+   ```
+   * Save the changes and restart `nginx` using this command: `sudo /etc/init.d/nginx reload`
+   * Check what you see in the browser at: `http://your ip adress here` - you should see an error now.
+   * This means that it can't find our dotnet app running on port 6007. We will fix that in the next step below.
+   
 * Run a `dotnet` Web App on the server
-    * create an `apps` folder using `mkdir apps`
+    * create an `apps` folder using `mkdir apps` - in your home folder `/root`
     * change into the folder using `cd apps`
     * clone the java project to the server:
         `git clone https://github.com/codex-academy/PlusMinusDotNet`
