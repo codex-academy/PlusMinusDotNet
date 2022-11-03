@@ -73,6 +73,14 @@ kill -9 <the id number>
 
     * Run this command on your server: `apt update` to ensure you got all the latest packages. It will take a while.
     * Install `dotnet` on the server 
+     On Ubuntu `22.04` use this command:
+     
+     ```
+     sudo apt-get update && \
+  sudo apt-get install -y dotnet6
+     ```
+     
+     *On Ubuntu 20.04 use these commands:
         * First run these commands:
         
         ```
