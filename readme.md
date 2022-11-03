@@ -67,12 +67,13 @@ kill -9 <the id number>
  * Rename your server to be called "YourFirstName-Server" in Digital Ocean
  * Please take a screen shot of this page - and keep it aside.
 * Login to the server using ssh
- * Login to the server using root : `ssh root@your.ip.address`
+* Login to the server using root : `ssh root@your.ip.address`
  
  * Server setup:
 
     * Run this command on your server: `apt update` to ensure you got all the latest packages. It will take a while.
     * Install `dotnet` on the server 
+     
      On Ubuntu `22.04` use this command:
      
      ```
@@ -80,7 +81,7 @@ kill -9 <the id number>
   sudo apt-get install -y dotnet6
      ```
      
-     *On Ubuntu 20.04 use these commands:
+     * On Ubuntu 20.04 use these commands:
         * First run these commands:
         
         ```
