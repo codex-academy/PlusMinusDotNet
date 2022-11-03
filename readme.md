@@ -57,7 +57,11 @@ kill -9 <the id number>
 * Create a server on Digital Ocean
  * I sent you an invitation
  * Cloud servers are called `droplets`
- * Create an Ubuntu `20.04` `$4` server (droplet) in *Amsterdam* - Datacenter 3 (speak to me if you don't have a `$4` - server option there)
+ * Create an Ubuntu `20.04` `$4` server (droplet)
+    *  in *Amsterdam* - Datacenter 3 (speak to me if you don't have a `$4` - server option there)
+    *  Click on basic
+    *  then click on Regular with SSD
+    *  Click the arrow to go left
  * Use password authentication
  * Rename your server to be called "YourFirstName-Server" in Digital Ocean
  * Please take a screen shot of this page - and keep it aside.
