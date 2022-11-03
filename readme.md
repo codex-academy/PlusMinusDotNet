@@ -78,7 +78,7 @@ kill -9 <the id number>
      
      ```
      sudo apt-get update && \
-  sudo apt-get install -y dotnet6
+     sudo apt-get install -y dotnet6
      ```
      
      * On Ubuntu 20.04 use these commands:
