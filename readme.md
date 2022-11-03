@@ -50,7 +50,7 @@ kill -9 <the id number>
 * Create a server on Digital Ocean
  * I sent you an invitation
  * Cloud servers are called `droplets`
- * Create an Ubuntu `$4` server (droplet) in *Amsterdam* - Datacenter 3 (speak to me if you don't have a `$4` - server option there)
+ * Create an Ubuntu `20.04` `$4` server (droplet) in *Amsterdam* - Datacenter 3 (speak to me if you don't have a `$4` - server option there)
  * Use password authentication
  * Rename your server to be called "YourFirstName-Server" in Digital Ocean
  * Please take a screen shot of this page - and keep it aside.
@@ -77,6 +77,7 @@ kill -9 <the id number>
         ```
         
         * after running these commands the `dotnet` command should work on your server.
+    * dotnet installation guidance on Ubuntu [here](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
     * `git` should already be installed on the server. If not install `git` on the server using: `apt install git`.
 
 * Link the server to a domain name
