@@ -2,7 +2,7 @@
 
 # VPS deployment application
 
-Use this project to learn how to deploy to a Digital Ocean VPS.
+Use this project to learn how to deploy dotnet Core Apps to a Digital Ocean VPS.
 
 ## Run the app locally first
 
@@ -128,7 +128,7 @@ kill -9 <the id number>
     * clone the java project to the server:
         `git clone https://github.com/codex-academy/PlusMinusDotNet`
     * change into this folder using`cd PlusMinusDotNet/`
-    * run dotnet maven commands:
+    * run these dotnet commands - to restore all local dependencies & to build & run the app:
         
         * `dotnet restore`
         * `dotnet build  -c Release`
