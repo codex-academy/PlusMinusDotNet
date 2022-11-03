@@ -90,14 +90,25 @@ kill -9 <the id number>
    * Start it using this command: `sudo /etc/init.d/nginx start` 
    * You should be able to access the running nginx web server now using this command: `http://your ip adress here`
 * Configure `nginx` to forward requests to our `dotnet` web app.
-   * Open the `/etc/nginx/site-available` file and edit the `location` section to look like this:
+   * Open the `/etc/nginx/site-available/default` file using the `nano` editor like this `nano /etc/nginx/site-available/default`
+   * and change the `location` section from something like this:
 
    ```
    location / {
-    # First attempt to serve request as file, then
-    # as directory, then fall back to displaying a 404.
-    # try_files $uri $uri/ =404;
-    proxy_pass http://localhost:6007;
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+   }
+   ```
+  
+   to look like this:
+
+   ```
+   location / {
+     # First attempt to serve request as file, then
+     # as directory, then fall back to displaying a 404.
+     # try_files $uri $uri/ =404;
+     proxy_pass http://localhost:6007;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection keep-alive;
