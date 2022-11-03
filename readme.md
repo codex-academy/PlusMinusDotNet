@@ -85,7 +85,7 @@ kill -9 <the id number>
     * `yourname.projectcodex.net`
 
 * Install `nginx` on the server:
-   * `nginx` is a web server that we will use as a reverse proxy to send HTTP request to our `dotnet` app
+   * [nginx](https://www.nginx.com/) is a web server that we will use as a [reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) to send HTTP request to our `dotnet` app
    * Install it using this command: `sudo apt-get install nginx`
    * Start it using this command: `sudo /etc/init.d/nginx start` 
    * You should be able to access the running nginx web server now using this command: `http://your ip adress here`
@@ -109,17 +109,17 @@ kill -9 <the id number>
      # as directory, then fall back to displaying a 404.
      # try_files $uri $uri/ =404;
      proxy_pass http://localhost:6007;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection keep-alive;
-            proxy_set_header Host $host;
-            proxy_cache_bypass $http_upgrade;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
+     proxy_http_version 1.1;
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection keep-alive;
+     proxy_set_header Host $host;
+     proxy_cache_bypass $http_upgrade;
+     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+     proxy_set_header X-Forwarded-Proto $scheme;
    }
    ```
    * Save the changes and restart `nginx` using this command: `sudo /etc/init.d/nginx reload`
-   * Check what you see in the browser at: `http://your ip adress here` - you should see an error now.
+   * Check what you see in the browser at: `http://your ip adress here` - you should see an `502 Bad Gateway` error now.
    * This means that it can't find our dotnet app running on port 6007. We will fix that in the next step below.
    
 * Run a `dotnet` Web App on the server
@@ -128,13 +128,13 @@ kill -9 <the id number>
     * clone the java project to the server:
         `git clone https://github.com/codex-academy/PlusMinusDotNet`
     * change into this folder using`cd PlusMinusDotNet/`
-    * run these maven commands:
+    * run dotnet maven commands:
         
         * `dotnet restore`
         * `dotnet build  -c Release`
-        * In your dotnet app folder run this command to start the application:  `dotnet bin/Release/net6.0/PlusMinus.dll --urls=http://localhost:6007/`
+        * `dotnet bin/Release/net6.0/PlusMinus.dll --urls=http://localhost:6007/`
         
-    * At this point your app should be running at: `http://your-server-ip-address:6007`
+    * At this point the app should be running at: `http://your-server-ip-address`
     * See if others are able to access your application
     * Please take some screenshots of :
             * your deployed application running the browser
