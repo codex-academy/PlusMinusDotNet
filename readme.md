@@ -91,12 +91,14 @@ kill -9 <the id number>
         `git clone https://github.com/codex-academy/PlusMinusDotNet`
     * change into this folder using`cd PlusMinusDotNet/`
     * run these maven commands:
+        
         * `dotnet restore`
         * `dotnet build  -c Release`
         * In your dotnet app folder run this command to start the application:  `dotnet bin/Release/net6.0/PlusMinus.dll --urls=http://localhost:6007/`
-        * At this point your app should be running at: `http://your-server-ip-address:6007`
-        * See if others are able to access your application
-        * Please take some screenshots of :
+        
+    * At this point your app should be running at: `http://your-server-ip-address:6007`
+    * See if others are able to access your application
+    * Please take some screenshots of :
             * your deployed application running the browser
             * your terminal window where you are running the application from
   * stop the process running in the terminal using the ctrl-c command - you should not be able to access your application now.
