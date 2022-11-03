@@ -111,7 +111,7 @@ kill -9 <the id number>
    * Start it using this command: `sudo /etc/init.d/nginx start` 
    * You should be able to access the running nginx web server now using this command: `http://your ip adress here`
 * Configure `nginx` to forward requests to our `dotnet` web app.
-   * Open the `/etc/nginx/site-availables/default` file using the `nano` editor like this `nano /etc/nginx/site-availables/default`
+   * Open the `/etc/nginx/sites-availables/default` file using the `nano` editor like this `nano /etc/nginx/sites-availables/default`
    * and change the `location` section from something like this:
 
    ```
