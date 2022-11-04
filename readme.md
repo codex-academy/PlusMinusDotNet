@@ -188,4 +188,55 @@ Run the `history` command to keep a list of all the commands you used during thi
 ## Delete your server
 
 Please delete your server in Digital Ocean.
+
+## Link sub domains to apps
+
+To link a sub domains to running apps you can add multiple `server` sections in your `/etc/nginx/sites-available/default` file.
+
+Like this:
+
+```
+server {
+
+   server_name app1.username.projectcodex.net;
+
+   location / {
+        proxy_pass http://localhost:3088;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+          
+    }
+
+}
+
+server {
+
+   server_name app2.username.projectcodex.net;
+
+   location / {
+        proxy_pass http://localhost:4007;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;     
+    }
+}
+
+```
+
+This will allow you to link the sub domain `app1.username.projectcodex.net` to an app running on port `3088`.
+And it will link the sub domain `app2.username.projectcodex.net` to an app running on port `4007`.
+
+You can add as many `server` sections as you need.
+
+You can read more [here](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04) and [here](https://www.linode.com/docs/guides/how-to-configure-nginx/) or you can just Google `nginx virtual host setup` or something similar. 
+
  
